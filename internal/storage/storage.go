@@ -1,0 +1,11 @@
+package storage
+
+import (
+	"context"
+)
+
+type Storage interface {
+	Save(ctx context.Context, originalURL, shortURL string) (string, error)
+	Get(ctx context.Context, shortURL string) (string, error)
+	Close() error
+}
